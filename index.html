@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="ar">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,13 +18,13 @@
             background-color: var(--bg-color);
             color: var(--text-color);
             margin: 0;
-            padding: 0;
+            padding: 20px;
             line-height: 1.7;
         }
 
         .container {
-            max-width: 900px;
-            margin: 40px auto;
+            max-width: 1100px;
+            margin: 20px auto;
             padding: 30px;
             background-color: var(--card-bg);
             border-radius: 8px;
@@ -32,55 +32,55 @@
             border: 1px solid var(--border-color);
         }
 
-        .header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 2px solid var(--accent-color);
-            padding-bottom: 20px;
-            margin-bottom: 30px;
-        }
-
         .brand-title {
-            font-size: 28px;
+            text-align: center;
+            font-size: 32px;
             font-weight: bold;
             letter-spacing: 2px;
             color: var(--accent-color);
-            margin: 0;
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 15px;
+            margin-bottom: 30px;
         }
 
-        .lang-btn {
-            background-color: var(--accent-color);
-            color: #ffffff;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 4px;
-            cursor: pointer;
-            font-weight: bold;
-            transition: opacity 0.3s ease;
+        .grid-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 25px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 20px;
         }
 
-        .lang-btn:hover {
-            opacity: 0.85;
+        .grid-row:last-child {
+            border-bottom: none;
         }
 
-        .content-section {
-            display: block;
+        .col-ar {
+            direction: rtl;
+            text-align: right;
         }
 
-        .hidden {
-            display: none;
+        .col-en {
+            direction: ltr;
+            text-align: left;
         }
 
-        h1, h2 {
+        h1 {
             color: var(--accent-color);
+            font-size: 24px;
+            margin-top: 0;
         }
 
         h2 {
-            margin-top: 25px;
+            color: var(--accent-color);
             font-size: 18px;
-            border-bottom: 1px solid #eee;
-            padding-bottom: 5px;
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+
+        p, ul {
+            margin: 0 0 10px 0;
         }
 
         ul {
@@ -89,109 +89,143 @@
         }
 
         li {
-            margin-bottom: 8px;
+            margin-bottom: 5px;
+        }
+
+        /* تحسين العرض للهواتف والشاشات الصغيرة */
+        @media (max-width: 768px) {
+            .grid-row {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+            .col-en {
+                border-top: 1px dashed var(--border-color);
+                padding-top: 15px;
+            }
         }
     </style>
 </head>
 <body>
 
 <div class="container">
-    <div class="header">
-        <div class="brand-title">J COLLECTION</div>
-        <button class="lang-btn" onclick="toggleLanguage()">English</button>
+    <div class="brand-title">J COLLECTION</div>
+
+    <!-- العنوان الرئيسي -->
+    <div class="grid-row">
+        <div class="col-ar">
+            <h1>شروط وأحكام الاستخدام</h1>
+            <p>أهلاً بك في <strong>J COLLECTION</strong>. تُطبق هذه الشروط والأحكام على استخدامك للموقع الإلكتروني وجميع الخدمات والمنتجات المرتبطة بنا.</p>
+        </div>
+        <div class="col-en">
+            <h1>Terms & Conditions</h1>
+            <p>Welcome to <strong>J COLLECTION</strong>. These Terms and Conditions apply to your use of our website and all associated services and products.</p>
+        </div>
     </div>
 
-    <!-- النص العربي -->
-    <div id="content-ar" class="content-section">
-        <h1>شروط وأحكام الاستخدام</h1>
-        <p>أهلاً بك في <strong>J COLLECTION</strong>. تُطبق هذه الشروط والأحكام على استخدامك للموقع الإلكتروني وجميع الخدمات والمنتجات المرتبطة بنا.</p>
-
-        <h2>1. القبول بالشروط</h2>
-        <p>بمجرد وصولك إلى الموقع أو الشراء منه، فإنك توافق على الالتزام بهذه الشروط والأحكام. إذا كنت لا توافق على أي جزء منها، يُرجى عدم استخدام الموقع.</p>
-
-        <h2>2. الملكية الفكرية</h2>
-        <p>جميع المحتويات المعروضة على الموقع، بما في ذلك الشعارات، التصاميم، النصوص، الصور، والمنتجات، هي ملك حصري لـ <strong>J COLLECTION</strong> ومحمية بموجب قوانين الملكية الفكرية. يُحظر نسخ أو توزيع أو إعادة استخدام أي عنصر دون إذن كتابي مسبق.</p>
-
-        <h2>3. المنتجات والطلبات</h2>
-        <ul>
-            <li>تسعى J COLLECTION لتقديم أقصى دقة ممكنة في تفاصيل وصور المنتجات. ومع ذلك، قد تختلف الألوان قليلاً بناءً على الشاشة المستخدمة.</li>
-            <li>نحتفظ بالحق في تعديل الأسعار أو توفر المنتجات في أي وقت دون إشعار مسبق.</li>
-            <li>نحتفظ بالحق في إلغاء أو رفض أي طلب في حال وجود خطأ في التسعير أو المخزون.</li>
-        </ul>
-
-        <h2>4. الشحن والتوصيل</h2>
-        <p>يتم معالجة الطلبات وشحنها وفقاً لسياسة الشحن المتبعة لدينا. يتحدد إطار التوصيل الزمني والتكلفة عند إتمام عملية الشراء بناءً على العنوان المحدد.</p>
-
-        <h2>5. الإرجاع والاستبدال</h2>
-        <p>يخضع إرجاع أو استبدال المنتجات لسياسة الإرجاع الخاصة بنا. يجب أن تكون المنتجات غير مستخدمة وفي حالتها الأصلية مع التغليف الكامل لتكون مؤهلة للإرجاع.</p>
-
-        <h2>6. الاستخدام المقبول</h2>
-        <p>تتعهد بعدم استخدام الموقع لأي غرض غير قانوني، أو محاولة الوصول غير المصرح به إلى أنظمتنا، أو التعارض مع تشغيل الموقع بأي شكل من الأشكال.</p>
-
-        <h2>7. تحديد المسؤولية</h2>
-        <p>لا تتحمل J COLLECTION المسؤولية عن أي أضرار مباشرة أو غير مباشرة ناتجة عن استخدام المنتجات أو عدم القدرة على استخدام الموقع.</p>
-
-        <h2>8. التعديلات</h2>
-        <p>نحتفظ بالحق في تحديث أو تغيير شروط الاستخدام هذه في أي وقت، وتصبح التعديلات سارية بمجرد نشرها على الموقع.</p>
+    <!-- 1. القبول بالشروط -->
+    <div class="grid-row">
+        <div class="col-ar">
+            <h2>1. القبول بالشروط</h2>
+            <p>بمجرد وصولك إلى الموقع أو الشراء منه، فإنك توافق على الالتزام بهذه الشروط والأحكام. إذا كنت لا توافق على أي جزء منها، يُرجى عدم استخدام الموقع.</p>
+        </div>
+        <div class="col-en">
+            <h2>1. Acceptance of Terms</h2>
+            <p>By accessing or purchasing from our site, you agree to be bound by these Terms and Conditions. If you do not agree with any part, please do not use the website.</p>
+        </div>
     </div>
 
-    <!-- English Content -->
-    <div id="content-en" class="content-section hidden">
-        <h1>Terms & Conditions</h1>
-        <p>Welcome to <strong>J COLLECTION</strong>. These Terms and Conditions apply to your use of our website and all associated services and products.</p>
+    <!-- 2. الملكية الفكرية -->
+    <div class="grid-row">
+        <div class="col-ar">
+            <h2>2. الملكية الفكرية</h2>
+            <p>جميع المحتويات المعروضة على الموقع، بما في ذلك الشعارات، التصاميم، النصوص، الصور، والمنتجات، هي ملك حصري لـ <strong>J COLLECTION</strong> ومحمية بموجب قوانين الملكية الفكرية. يُحظر نسخ أو توزيع أو إعادة استخدام أي عنصر دون إذن كتابي مسبق.</p>
+        </div>
+        <div class="col-en">
+            <h2>2. Intellectual Property</h2>
+            <p>All content displayed on this website, including logos, designs, text, images, and products, is the exclusive property of <strong>J COLLECTION</strong> and is protected by intellectual property laws. Copying, distributing, or reusing any material without prior written permission is prohibited.</p>
+        </div>
+    </div>
 
-        <h2>1. Acceptance of Terms</h2>
-        <p>By accessing or purchasing from our site, you agree to be bound by these Terms and Conditions. If you do not agree with any part, please do not use the website.</p>
+    <!-- 3. المنتجات والطلبات -->
+    <div class="grid-row">
+        <div class="col-ar">
+            <h2>3. المنتجات والطلبات</h2>
+            <ul>
+                <li>تسعى J COLLECTION لتقديم أقصى دقة ممكنة في تفاصيل وصور المنتجات. ومع ذلك، قد تختلف الألوان قليلاً بناءً على الشاشة المستخدمة.</li>
+                <li>نحتفظ بالحق في تعديل الأسعار أو توفر المنتجات في أي وقت دون إشعار مسبق.</li>
+                <li>نحتفظ بالحق في إلغاء أو رفض أي طلب في حال وجود خطأ في التسعير أو المخزون.</li>
+            </ul>
+        </div>
+        <div class="col-en">
+            <h2>3. Products & Orders</h2>
+            <ul>
+                <li>J COLLECTION strives to provide maximum accuracy in product details and visual displays. However, colors may vary slightly depending on display screens.</li>
+                <li>We reserve the right to modify prices or product availability at any time without prior notice.</li>
+                <li>We reserve the right to cancel or refuse any order in the event of pricing or stock errors.</li>
+            </ul>
+        </div>
+    </div>
 
-        <h2>2. Intellectual Property</h2>
-        <p>All content displayed on this website, including logos, designs, text, images, and products, is the exclusive property of <strong>J COLLECTION</strong> and is protected by intellectual property laws. Copying, distributing, or reusing any material without prior written permission is prohibited.</p>
+    <!-- 4. الشحن والتوصيل -->
+    <div class="grid-row">
+        <div class="col-ar">
+            <h2>4. الشحن والتوصيل</h2>
+            <p>يتم معالجة الطلبات وشحنها وفقاً لسياسة الشحن المتبعة لدينا. يتحدد إطار التوصيل الزمني والتكلفة عند إتمام عملية الشراء بناءً على العنوان المحدد.</p>
+        </div>
+        <div class="col-en">
+            <h2>4. Shipping & Delivery</h2>
+            <p>Orders are processed and shipped in accordance with our shipping policy. The delivery timeline and shipping costs are determined at checkout based on the specified address.</p>
+        </div>
+    </div>
 
-        <h2>3. Products & Orders</h2>
-        <ul>
-            <li>J COLLECTION strives to provide maximum accuracy in product details and visual displays. However, colors may vary slightly depending on display screens.</li>
-            <li>We reserve the right to modify prices or product availability at any time without prior notice.</li>
-            <li>We reserve the right to cancel or refuse any order in the event of pricing or stock errors.</li>
-        </ul>
+    <!-- 5. الإرجاع والاستبدال -->
+    <div class="grid-row">
+        <div class="col-ar">
+            <h2>5. الإرجاع والاستبدال</h2>
+            <p>يخضع إرجاع أو استبدال المنتجات لسياسة الإرجاع الخاصة بنا. يجب أن تكون المنتجات غير مستخدمة وفي حالتها الأصلية مع التغليف الكامل لتكون مؤهلة للإرجاع.</p>
+        </div>
+        <div class="col-en">
+            <h2>5. Returns & Exchanges</h2>
+            <p>Product returns or exchanges are subject to the J COLLECTION return policy. Products must be unused, in their original condition, and in full original packaging to be eligible for return.</p>
+        </div>
+    </div>
 
-        <h2>4. Shipping & Delivery</h2>
-        <p>Orders are processed and shipped in accordance with our shipping policy. The delivery timeline and shipping costs are determined at checkout based on the specified address.</p>
+    <!-- 6. الاستخدام المقبول -->
+    <div class="grid-row">
+        <div class="col-ar">
+            <h2>6. الاستخدام المقبول</h2>
+            <p>تتعهد بعدم استخدام الموقع لأي غرض غير قانوني، أو محاولة الوصول غير المصرح به إلى أنظمتنا، أو التعارض مع تشغيل الموقع بأي شكل من الأشكال.</p>
+        </div>
+        <div class="col-en">
+            <h2>6. Acceptable Use</h2>
+            <p>You agree not to use the site for any unlawful purpose, attempt unauthorized access to our systems, or interfere with the proper operation of the site.</p>
+        </div>
+    </div>
 
-        <h2>5. Returns & Exchanges</h2>
-        <p>Product returns or exchanges are subject to the J COLLECTION return policy. Products must be unused, in their original condition, and in full original packaging to be eligible for return.</p>
+    <!-- 7. تحديد المسؤولية -->
+    <div class="grid-row">
+        <div class="col-ar">
+            <h2>7. تحديد المسؤولية</h2>
+            <p>لا تتحمل J COLLECTION المسؤولية عن أي أضرار مباشرة أو غير مباشرة ناتجة عن استخدام المنتجات أو عدم القدرة على استخدام الموقع.</p>
+        </div>
+        <div class="col-en">
+            <h2>7. Limitation of Liability</h2>
+            <p>J COLLECTION shall not be held liable for any direct or indirect damages resulting from the use of products or the inability to use the site.</p>
+        </div>
+    </div>
 
-        <h2>6. Acceptable Use</h2>
-        <p>You agree not to use the site for any unlawful purpose, attempt unauthorized access to our systems, or interfere with the proper operation of the site.</p>
-
-        <h2>7. Limitation of Liability</h2>
-        <p>J COLLECTION shall not be held liable for any direct or indirect damages resulting from the use of products or the inability to use the site.</p>
-
-        <h2>8. Amendments</h2>
-        <p>We reserve the right to update or modify these Terms and Conditions at any time, and changes become effective immediately upon posting to the site.</p>
+    <!-- 8. التعديلات -->
+    <div class="grid-row">
+        <div class="col-ar">
+            <h2>8. التعديلات</h2>
+            <p>نحتفظ بالحق في تحديث أو تغيير شروط الاستخدام هذه في أي وقت، وتصبح التعديلات سارية بمجرد نشرها على الموقع.</p>
+        </div>
+        <div class="col-en">
+            <h2>8. Amendments</h2>
+            <p>We reserve the right to update or modify these Terms and Conditions at any time, and changes become effective immediately upon posting to the site.</p>
+        </div>
     </div>
 </div>
-
-<script>
-    function toggleLanguage() {
-        const ar = document.getElementById('content-ar');
-        const en = document.getElementById('content-en');
-        const btn = document.querySelector('.lang-btn');
-        const html = document.documentElement;
-
-        if (ar.classList.contains('hidden')) {
-            ar.classList.remove('hidden');
-            en.classList.add('hidden');
-            html.setAttribute('dir', 'rtl');
-            html.setAttribute('lang', 'ar');
-            btn.textContent = 'English';
-        } else {
-            ar.classList.add('hidden');
-            en.classList.remove('hidden');
-            html.setAttribute('dir', 'ltr');
-            html.setAttribute('lang', 'en');
-            btn.textContent = 'العربية';
-        }
-    }
-</script>
 
 </body>
 </html>
