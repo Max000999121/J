@@ -1,231 +1,1004 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Terms & Conditions | J COLLECTION</title>
-    <style>
-        :root {
-            --bg-color: #f9f9f9;
-            --text-color: #222222;
-            --accent-color: #1b4d3e;
-            --card-bg: #ffffff;
-            --border-color: #e0e0e0;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>J COLLECTION</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            margin: 0;
-            padding: 20px;
-            line-height: 1.7;
-        }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+      background-color: #ffffff;
+      color: #111111;
+      line-height: 1.4;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
 
-        .container {
-            max-width: 1100px;
-            margin: 20px auto;
-            padding: 30px;
-            background-color: var(--card-bg);
-            border-radius: 8px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            border: 1px solid var(--border-color);
-        }
+    /* Header Container */
+    .nike-header {
+      background: #ffffff;
+      border-bottom: 1px solid #e5e5e5;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      padding: 8px 24px;
+    }
 
-        .brand-title {
-            text-align: center;
-            font-size: 32px;
-            font-weight: bold;
-            letter-spacing: 2px;
-            color: var(--accent-color);
-            border-bottom: 2px solid var(--accent-color);
-            padding-bottom: 15px;
-            margin-bottom: 30px;
-        }
+    /* Top Row */
+    .header-top-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+    }
 
-        .grid-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
-            margin-bottom: 25px;
-            border-bottom: 1px solid #eee;
-            padding-bottom: 20px;
-        }
+    /* Logo Box */
+    .logo-box {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-decoration: none;
+      cursor: pointer;
+      position: relative;
+      flex-shrink: 0;
+    }
 
-        .grid-row:last-child {
-            border-bottom: none;
-        }
+    .j-logo-svg {
+      width: 34px;
+      height: 34px;
+      display: block;
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), filter 0.35s ease;
+      will-change: transform;
+    }
 
-        .col-ar {
-            direction: rtl;
-            text-align: right;
-        }
+    .logo-text {
+      font-size: 8px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      color: #111111;
+      text-transform: uppercase;
+      opacity: 0;
+      max-height: 0;
+      overflow: hidden;
+      transform: translateY(-4px) scale(0.95);
+      transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+                  transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+                  max-height 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+                  margin-top 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      white-space: nowrap;
+      will-change: opacity, transform, max-height;
+    }
 
-        .col-en {
-            direction: ltr;
-            text-align: left;
-        }
+    .logo-box:hover .j-logo-svg {
+      transform: scale(1.08);
+      filter: drop-shadow(0 2px 6px rgba(0,0,0,0.12));
+    }
 
-        h1 {
-            color: var(--accent-color);
-            font-size: 24px;
-            margin-top: 0;
-        }
+    .logo-box:hover .logo-text {
+      opacity: 1;
+      max-height: 12px;
+      transform: translateY(0) scale(1);
+      margin-top: 2px;
+    }
 
-        h2 {
-            color: var(--accent-color);
-            font-size: 18px;
-            margin-top: 0;
-            margin-bottom: 10px;
-        }
+    /* Search Bar Element - Shifted Left */
+    .search-container {
+      flex: 1;
+      max-width: 360px;
+      margin-right: auto;
+      margin-left: 10px;
+      position: relative;
+    }
 
-        p, ul {
-            margin: 0 0 10px 0;
-        }
+    .search-bar {
+      width: 100%;
+      padding: 6px 12px 6px 32px;
+      border: 1px solid #e0e0e0;
+      border-radius: 18px;
+      font-size: 11px;
+      outline: none;
+      background-color: #f9f9f9;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
 
-        ul {
-            padding-right: 20px;
-            padding-left: 20px;
-        }
+    .search-bar:focus {
+      background-color: #ffffff;
+      border-color: #111111;
+      box-shadow: 0 0 0 1px #111111;
+    }
 
-        li {
-            margin-bottom: 5px;
-        }
+    .search-icon {
+      position: absolute;
+      left: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 13px;
+      height: 13px;
+      fill: none;
+      stroke: #757575;
+      stroke-width: 2;
+      pointer-events: none;
+    }
 
-        /* تحسين العرض للهواتف والشاشات الصغيرة */
-        @media (max-width: 768px) {
-            .grid-row {
-                grid-template-columns: 1fr;
-                gap: 15px;
-            }
-            .col-en {
-                border-top: 1px dashed var(--border-color);
-                padding-top: 15px;
-            }
-        }
-    </style>
+    /* Action Icons */
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-shrink: 0;
+    }
+
+    .action-item {
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+
+    /* Country Search Dropdown Wrapper */
+    .country-search-wrapper {
+      position: relative;
+    }
+
+    .country-trigger-btn {
+      background: #f8f8f8;
+      border: 1px solid #e0e0e0;
+      border-radius: 16px;
+      padding: 5px 10px;
+      font-size: 10.5px;
+      font-weight: 700;
+      color: #111111;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s ease;
+    }
+
+    .country-trigger-btn:hover {
+      background: #ffffff;
+      border-color: #111111;
+    }
+
+    .country-dropdown-menu {
+      position: absolute;
+      top: 100%;
+      right: 0;
+      margin-top: 8px;
+      background: #ffffff;
+      border: 1px solid #e5e5e5;
+      border-radius: 10px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+      width: 210px;
+      display: none;
+      flex-direction: column;
+      overflow: hidden;
+      z-index: 1002;
+    }
+
+    .country-dropdown-menu.open {
+      display: flex;
+    }
+
+    .country-search-input {
+      width: 100%;
+      padding: 8px 10px;
+      border: none;
+      border-bottom: 1px solid #eeeeee;
+      font-size: 10.5px;
+      outline: none;
+      background: #fafafa;
+    }
+
+    .country-list {
+      max-height: 180px;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .country-option {
+      padding: 8px 12px;
+      font-size: 10.5px;
+      font-weight: 600;
+      color: #111111;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      transition: background 0.2s ease;
+    }
+
+    .country-option:hover {
+      background: #f5f5f5;
+    }
+
+    .icon-btn {
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #111111;
+      transition: opacity 0.2s ease, transform 0.2s ease;
+    }
+
+    .icon-btn:hover {
+      opacity: 0.6;
+      transform: scale(1.05);
+    }
+
+    .icon-svg {
+      width: 18px;
+      height: 18px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .cart-count {
+      position: absolute;
+      top: -2px;
+      right: -2px;
+      background: #111111;
+      color: #ffffff;
+      font-size: 8px;
+      font-weight: 700;
+      width: 13px;
+      height: 13px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Account / Login Dropdown */
+    .account-dropdown {
+      position: absolute;
+      top: 100%;
+      right: 0;
+      margin-top: 8px;
+      background: #ffffff;
+      border: 1px solid #e5e5e5;
+      border-radius: 8px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      width: 140px;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      z-index: 1001;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-8px) scale(0.96);
+      transform-origin: top right;
+      transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+                  transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+                  visibility 0.3s ease;
+      pointer-events: none;
+    }
+
+    .action-item:hover .account-dropdown,
+    .account-dropdown:hover {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0) scale(1);
+      pointer-events: auto;
+    }
+
+    .account-dropdown a, .account-dropdown button {
+      padding: 8px 12px;
+      font-size: 10.5px;
+      font-weight: 600;
+      color: #111111;
+      text-decoration: none;
+      background: none;
+      border: none;
+      text-align: left;
+      cursor: pointer;
+      width: 100%;
+      transition: background 0.2s ease, color 0.2s ease;
+    }
+
+    .account-dropdown a:hover, .account-dropdown button:hover {
+      background: #f5f5f5;
+      color: #000000;
+    }
+
+    .account-dropdown .user-greeting {
+      padding: 8px 12px;
+      font-size: 10px;
+      font-weight: 700;
+      color: #666666;
+      border-bottom: 1px solid #eeeeee;
+      background: #fafafa;
+    }
+
+    .account-dropdown .divider {
+      height: 1px;
+      background: #eeeeee;
+      margin: 2px 0;
+    }
+
+    /* Cart Side Drawer */
+    .cart-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.4);
+      z-index: 2000;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .cart-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .cart-drawer {
+      position: fixed;
+      top: 0;
+      right: -360px;
+      width: 100%;
+      max-width: 340px;
+      height: 100%;
+      background: #ffffff;
+      z-index: 2001;
+      box-shadow: -5px 0 25px rgba(0,0,0,0.15);
+      display: flex;
+      flex-direction: column;
+      transition: right 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .cart-drawer.open {
+      right: 0;
+    }
+
+    .cart-header {
+      padding: 16px;
+      border-bottom: 1px solid #eeeeee;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .cart-header h3 {
+      font-size: 14px;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+    }
+
+    .close-cart-btn {
+      background: none;
+      border: none;
+      font-size: 18px;
+      cursor: pointer;
+      color: #111111;
+    }
+
+    .cart-items-container {
+      flex: 1;
+      overflow-y: auto;
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .cart-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 12px;
+      border-bottom: 1px solid #f5f5f5;
+    }
+
+    .cart-item-info {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .cart-item-title {
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    .cart-item-price {
+      font-size: 10px;
+      color: #666;
+    }
+
+    .cart-item-controls {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .qty-btn {
+      background: #f0f0f0;
+      border: none;
+      width: 20px;
+      height: 20px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 12px;
+    }
+
+    .qty-btn:hover {
+      background: #e0e0e0;
+    }
+
+    .cart-footer {
+      padding: 16px;
+      border-top: 1px solid #eeeeee;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .cart-total-line {
+      display: flex;
+      justify-content: space-between;
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .checkout-btn {
+      width: 100%;
+      background: #111111;
+      color: #ffffff;
+      border: none;
+      padding: 10px;
+      border-radius: 20px;
+      font-size: 11px;
+      font-weight: 700;
+      cursor: pointer;
+      text-transform: uppercase;
+      transition: background 0.2s ease;
+    }
+
+    .checkout-btn:hover {
+      background: #333333;
+    }
+
+    /* Main Content Container */
+    .main-content {
+      flex: 1;
+      padding: 24px;
+      max-width: 1200px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    /* Section Positioned BELOW Header Line */
+    .below-border-section {
+      padding: 10px 24px 4px 24px;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+    }
+
+    .circle-trigger-wrapper {
+      display: flex;
+      align-items: center;
+      position: relative;
+    }
+
+    /* Dark Circle Button with Custom Perfume SVG */
+    .category-circle-btn {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: #111111;
+      color: #ffffff;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.18);
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.25s ease;
+      z-index: 2;
+      flex-shrink: 0;
+      padding: 6px;
+    }
+
+    .category-circle-btn:hover {
+      transform: scale(1.08);
+      background: #000000;
+    }
+
+    .bottle-svg {
+      width: 100%;
+      height: 100%;
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .circle-trigger-wrapper.open .bottle-svg {
+      transform: scale(1.1) rotate(6deg);
+    }
+
+    .sliding-category-menu {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      background: #f5f5f5;
+      padding: 6px 16px 6px 22px;
+      border-radius: 18px;
+      margin-left: -18px;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateX(-12px) scaleX(0.9);
+      transform-origin: left center;
+      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      z-index: 1;
+      border: 1px solid #e5e5e5;
+    }
+
+    .circle-trigger-wrapper.open .sliding-category-menu {
+      opacity: 1;
+      visibility: visible;
+      transform: translateX(0) scaleX(1);
+    }
+
+    .sliding-category-menu a {
+      text-decoration: none;
+      color: #111111;
+      font-size: 10.5px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      transition: color 0.2s ease, transform 0.2s ease;
+      white-space: nowrap;
+    }
+
+    .sliding-category-menu a:hover {
+      color: #666666;
+      transform: translateY(-1px);
+    }
+
+    /* Footer */
+    .nike-footer {
+      background: #111111;
+      color: #ffffff;
+      padding: 12px 24px 8px;
+      margin-top: auto;
+    }
+
+    .footer-vertical-container {
+      display: flex;
+      justify-content: flex-start;
+      gap: 36px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #222222;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .footer-col {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .col-title {
+      font-size: 9px;
+      font-weight: 700;
+      color: #ffffff;
+      text-transform: uppercase;
+      margin-bottom: 2px;
+      letter-spacing: 0.5px;
+      display: inline-block;
+      transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .col-title:hover {
+      transform: scale(1.03);
+    }
+
+    .footer-col a {
+      color: #888888;
+      text-decoration: none;
+      font-size: 9px;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      transition: color 0.2s ease, transform 0.2s ease;
+      transform-origin: left center;
+    }
+
+    .footer-col a:hover {
+      color: #ffffff;
+      transform: translateX(2px);
+    }
+
+    .footer-icon {
+      width: 10px;
+      height: 10px;
+      object-fit: contain;
+    }
+
+    .footer-legal-line {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 6px;
+      color: #666666;
+      font-size: 8px;
+      max-width: 1200px;
+      margin: 0 auto;
+      gap: 8px;
+    }
+
+    @media (max-width: 600px) {
+      .header-top-row {
+        flex-wrap: wrap;
+      }
+      .search-container {
+        order: 3;
+        width: 100%;
+        max-width: 100%;
+        margin-left: 0;
+      }
+    }
+  </style>
 </head>
 <body>
 
-<div class="container">
-    <div class="brand-title">J COLLECTION</div>
+  <!-- Top Header Navigation Bar -->
+  <header class="nike-header">
+    <div class="header-top-row">
+      
+      <!-- Logo -->
+      <a href="#" class="logo-box">
+        <svg class="j-logo-svg" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="100" cy="100" r="90" fill="#ffffff" stroke="#111111" stroke-width="12"/>
+          <text x="100" y="138" font-family="'Times New Roman', Georgia, serif" font-size="115" font-weight="bold" fill="#111111" text-anchor="middle">J</text>
+        </svg>
+        <span class="logo-text">J COLLECTION</span>
+      </a>
 
-    <!-- العنوان الرئيسي -->
-    <div class="grid-row">
-        <div class="col-ar">
-            <h1>شروط وأحكام الاستخدام</h1>
-            <p>أهلاً بك في <strong>J COLLECTION</strong>. تُطبق هذه الشروط والأحكام على استخدامك للموقع الإلكتروني وجميع الخدمات والمنتجات المرتبطة بنا.</p>
-        </div>
-        <div class="col-en">
-            <h1>Terms & Conditions</h1>
-            <p>Welcome to <strong>J COLLECTION</strong>. These Terms and Conditions apply to your use of our website and all associated services and products.</p>
-        </div>
-    </div>
+      <!-- Compact Search Bar -->
+      <div class="search-container">
+        <svg class="search-icon" viewBox="0 0 24 24">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+        <input type="text" class="search-bar" placeholder="Search perfumes, collections...">
+      </div>
 
-    <!-- 1. القبول بالشروط -->
-    <div class="grid-row">
-        <div class="col-ar">
-            <h2>1. القبول بالشروط</h2>
-            <p>بمجرد وصولك إلى الموقع أو الشراء منه، فإنك توافق على الالتزام بهذه الشروط والأحكام. إذا كنت لا توافق على أي جزء منها، يُرجى عدم استخدام الموقع.</p>
+      <!-- Actions -->
+      <div class="header-actions">
+        
+        <!-- Interactive Country Search Selector -->
+        <div class="action-item country-search-wrapper">
+          <button class="country-trigger-btn" id="countryTriggerBtn">
+            <span id="selectedFlag">🇺🇸</span>
+            <span id="selectedCurrency">USD ($)</span>
+            <small>▾</small>
+          </button>
+          
+          <div class="country-dropdown-menu" id="countryDropdownMenu">
+            <input type="text" class="country-search-input" id="countrySearchInput" placeholder="Search country, flag, currency...">
+            <div class="country-list" id="countryList">
+              <!-- Rendered via JS -->
+            </div>
+          </div>
         </div>
-        <div class="col-en">
-            <h2>1. Acceptance of Terms</h2>
-            <p>By accessing or purchasing from our site, you agree to be bound by these Terms and Conditions. If you do not agree with any part, please do not use the website.</p>
-        </div>
-    </div>
 
-    <!-- 2. الملكية الفكرية -->
-    <div class="grid-row">
-        <div class="col-ar">
-            <h2>2. الملكية الفكرية</h2>
-            <p>جميع المحتويات المعروضة على الموقع، بما في ذلك الشعارات، التصاميم، النصوص، الصور، والمنتجات، هي ملك حصري لـ <strong>J COLLECTION</strong> ومحمية بموجب قوانين الملكية الفكرية. يُحظر نسخ أو توزيع أو إعادة استخدام أي عنصر دون إذن كتابي مسبق.</p>
+        <div class="action-item">
+          <button class="icon-btn" aria-label="Account">
+            <svg class="icon-svg" viewBox="0 0 24 24">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+              <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+          </button>
+          
+          <div class="account-dropdown" id="accountDropdown">
+            <!-- Dynamic Content via JS -->
+          </div>
         </div>
-        <div class="col-en">
-            <h2>2. Intellectual Property</h2>
-            <p>All content displayed on this website, including logos, designs, text, images, and products, is the exclusive property of <strong>J COLLECTION</strong> and is protected by intellectual property laws. Copying, distributing, or reusing any material without prior written permission is prohibited.</p>
-        </div>
-    </div>
 
-    <!-- 3. المنتجات والطلبات -->
-    <div class="grid-row">
-        <div class="col-ar">
-            <h2>3. المنتجات والطلبات</h2>
-            <ul>
-                <li>تسعى J COLLECTION لتقديم أقصى دقة ممكنة في تفاصيل وصور المنتجات. ومع ذلك، قد تختلف الألوان قليلاً بناءً على الشاشة المستخدمة.</li>
-                <li>نحتفظ بالحق في تعديل الأسعار أو توفر المنتجات في أي وقت دون إشعار مسبق.</li>
-                <li>نحتفظ بالحق في إلغاء أو رفض أي طلب في حال وجود خطأ في التسعير أو المخزون.</li>
-            </ul>
+        <div class="action-item">
+          <button class="icon-btn" id="cartBtn" aria-label="Cart">
+            <svg class="icon-svg" viewBox="0 0 24 24">
+              <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <path d="M16 10a4 4 0 0 1-8 0"></path>
+            </svg>
+            <span class="cart-count" id="cartCount">0</span>
+          </button>
         </div>
-        <div class="col-en">
-            <h2>3. Products & Orders</h2>
-            <ul>
-                <li>J COLLECTION strives to provide maximum accuracy in product details and visual displays. However, colors may vary slightly depending on display screens.</li>
-                <li>We reserve the right to modify prices or product availability at any time without prior notice.</li>
-                <li>We reserve the right to cancel or refuse any order in the event of pricing or stock errors.</li>
-            </ul>
-        </div>
-    </div>
+      </div>
 
-    <!-- 4. الشحن والتوصيل -->
-    <div class="grid-row">
-        <div class="col-ar">
-            <h2>4. الشحن والتوصيل</h2>
-            <p>يتم معالجة الطلبات وشحنها وفقاً لسياسة الشحن المتبعة لدينا. يتحدد إطار التوصيل الزمني والتكلفة عند إتمام عملية الشراء بناءً على العنوان المحدد.</p>
-        </div>
-        <div class="col-en">
-            <h2>4. Shipping & Delivery</h2>
-            <p>Orders are processed and shipped in accordance with our shipping policy. The delivery timeline and shipping costs are determined at checkout based on the specified address.</p>
-        </div>
     </div>
+  </header>
 
-    <!-- 5. الإرجاع والاستبدال -->
-    <div class="grid-row">
-        <div class="col-ar">
-            <h2>5. الإرجاع والاستبدال</h2>
-            <p>يخضع إرجاع أو استبدال المنتجات لسياسة الإرجاع الخاصة بنا. يجب أن تكون المنتجات غير مستخدمة وفي حالتها الأصلية مع التغليف الكامل لتكون مؤهلة للإرجاع.</p>
-        </div>
-        <div class="col-en">
-            <h2>5. Returns & Exchanges</h2>
-            <p>Product returns or exchanges are subject to the J COLLECTION return policy. Products must be unused, in their original condition, and in full original packaging to be eligible for return.</p>
-        </div>
-    </div>
+  <!-- Circle Section -->
+  <div class="below-border-section">
+    <div class="circle-trigger-wrapper" id="circleMenuWrapper">
+      <button class="category-circle-btn" id="circleBtn" aria-label="Toggle Categories">
+        <svg class="bottle-svg" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <polygon points="50,12 68,20 50,32 32,20" fill="#ffffff" opacity="0.9"/>
+          <polygon points="50,12 32,20 38,28 50,32" fill="#d0d0d0"/>
+          <polygon points="50,12 68,20 62,28 50,32" fill="#ffffff"/>
+          <rect x="42" y="32" width="16" height="6" rx="1" fill="#e0e0e0"/>
+          <polygon points="35,38 65,38 82,55 82,78 65,92 35,92 18,78 18,55" fill="#1a1a1a" stroke="#ffffff" stroke-width="2.5"/>
+          <polygon points="35,38 50,50 65,38" fill="none" stroke="#ffffff" stroke-width="1.2" opacity="0.6"/>
+          <polygon points="18,55 35,65 35,38" fill="none" stroke="#ffffff" stroke-width="1.2" opacity="0.5"/>
+          <polygon points="82,55 65,65 65,38" fill="none" stroke="#ffffff" stroke-width="1.2" opacity="0.5"/>
+          <polygon points="18,78 35,65 35,92" fill="none" stroke="#ffffff" stroke-width="1.2" opacity="0.5"/>
+          <polygon points="82,78 65,65 65,92" fill="none" stroke="#ffffff" stroke-width="1.2" opacity="0.5"/>
+          <text x="50" y="73" font-family="'Times New Roman', serif" font-size="28" font-weight="bold" fill="#ffffff" text-anchor="middle">J</text>
+        </svg>
+      </button>
 
-    <!-- 6. الاستخدام المقبول -->
-    <div class="grid-row">
-        <div class="col-ar">
-            <h2>6. الاستخدام المقبول</h2>
-            <p>تتعهد بعدم استخدام الموقع لأي غرض غير قانوني، أو محاولة الوصول غير المصرح به إلى أنظمتنا، أو التعارض مع تشغيل الموقع بأي شكل من الأشكال.</p>
-        </div>
-        <div class="col-en">
-            <h2>6. Acceptable Use</h2>
-            <p>You agree not to use the site for any unlawful purpose, attempt unauthorized access to our systems, or interfere with the proper operation of the site.</p>
-        </div>
+      <nav class="sliding-category-menu">
+        <a href="#men">Men</a>
+        <a href="#women">Women</a>
+        <a href="#unisex">Unisex</a>
+      </nav>
     </div>
+  </div>
 
-    <!-- 7. تحديد المسؤولية -->
-    <div class="grid-row">
-        <div class="col-ar">
-            <h2>7. تحديد المسؤولية</h2>
-            <p>لا تتحمل J COLLECTION المسؤولية عن أي أضرار مباشرة أو غير مباشرة ناتجة عن استخدام المنتجات أو عدم القدرة على استخدام الموقع.</p>
-        </div>
-        <div class="col-en">
-            <h2>7. Limitation of Liability</h2>
-            <p>J COLLECTION shall not be held liable for any direct or indirect damages resulting from the use of products or the inability to use the site.</p>
-        </div>
-    </div>
+  <!-- Main Content Showcase -->
+  <main class="main-content">
+  </main>
 
-    <!-- 8. التعديلات -->
-    <div class="grid-row">
-        <div class="col-ar">
-            <h2>8. التعديلات</h2>
-            <p>نحتفظ بالحق في تحديث أو تغيير شروط الاستخدام هذه في أي وقت، وتصبح التعديلات سارية بمجرد نشرها على الموقع.</p>
-        </div>
-        <div class="col-en">
-            <h2>8. Amendments</h2>
-            <p>We reserve the right to update or modify these Terms and Conditions at any time, and changes become effective immediately upon posting to the site.</p>
-        </div>
+  <!-- Cart Drawer Component -->
+  <div class="cart-overlay" id="cartOverlay"></div>
+  <aside class="cart-drawer" id="cartDrawer">
+    <div class="cart-header">
+      <h3>YOUR CART</h3>
+      <button class="close-cart-btn" id="closeCartBtn">&times;</button>
     </div>
-</div>
+    <div class="cart-items-container" id="cartItems">
+      <!-- Items dynamically added here -->
+    </div>
+    <div class="cart-footer">
+      <div class="cart-total-line">
+        <span>TOTAL</span>
+        <span id="cartTotal">$0.00</span>
+      </div>
+      <button class="checkout-btn">Checkout</button>
+    </div>
+  </aside>
+
+  <!-- Compact Footer -->
+  <footer class="nike-footer">
+    <div class="footer-vertical-container">
+      <div class="footer-col">
+        <span class="col-title">Contact Us</span>
+        <a href="https://instagram.com" target="_blank"><img src="https://cdn.discordapp.com/emojis/1419332280614391959.webp?size=32" alt="Instagram" class="footer-icon">Instagram</a>
+        <a href="https://facebook.com" target="_blank"><img src="https://cdn.discordapp.com/emojis/1124246588508872744.webp?size=32" alt="Facebook" class="footer-icon">Facebook</a>
+        <a href="https://wa.me/201000000000" target="_blank"><img src="https://cdn.discordapp.com/emojis/1525076303160676478.webp?size=32" alt="WhatsApp" class="footer-icon">WhatsApp</a>
+        <a href="mailto:support@jcollection.com"><img src="https://cdn.discordapp.com/emojis/1130125586396880907.webp?size=32" alt="Gmail" class="footer-icon">Gmail</a>
+      </div>
+      <div class="footer-col">
+        <span class="col-title">About Us</span>
+        <a href="#">Our Story</a>
+        <a href="#">New Releases</a>
+      </div>
+      <div class="footer-col">
+        <span class="col-title">Orders & Delivery</span>
+        <a href="https://wa.me/201000000000?text=Check%20Order%20Status" target="_blank">Order Status</a>
+      </div>
+    </div>
+    <div class="footer-legal-line">
+      <span>Egypt &copy; 2026 J Collection, Inc. All rights reserved.</span>
+    </div>
+  </footer>
+
+  <script>
+    /* Category Toggle JS */
+    const circleBtn = document.getElementById('circleBtn');
+    const circleWrapper = document.getElementById('circleMenuWrapper');
+
+    circleBtn.addEventListener('click', () => {
+      circleWrapper.classList.toggle('open');
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!circleWrapper.contains(e.target)) {
+        circleWrapper.classList.remove('open');
+      }
+    });
+
+    /* Countries Dataset */
+    const countriesData = [
+      { code: "US", name: "United States", flag: "🇺🇸", symbol: "$", rate: 1 },
+      { code: "EG", name: "Egypt", flag: "🇪🇬", symbol: "EGP", rate: 50 },
+      { code: "AE", name: "United Arab Emirates", flag: "🇦🇪", symbol: "AED", rate: 3.67 },
+      { code: "SA", name: "Saudi Arabia", flag: "🇸🇦", symbol: "SAR", rate: 3.75 },
+      { code: "GB", name: "United Kingdom", flag: "🇬🇧", symbol: "£", rate: 0.78 },
+      { code: "EU", name: "European Union", flag: "🇪🇺", symbol: "€", rate: 0.92 },
+      { code: "KW", name: "Kuwait", flag: "🇰🇼", symbol: "KWD", rate: 0.31 },
+      { code: "QA", name: "Qatar", flag: "🇶🇦", symbol: "QAR", rate: 3.64 }
+    ];
+
+    let currentRate = 1;
+    let currentSymbol = '$';
+
+    const countryTriggerBtn = document.getElementById('countryTriggerBtn');
+    const countryDropdownMenu = document.getElementById('countryDropdownMenu');
+    const countrySearchInput = document.getElementById('countrySearchInput');
+    const countryList = document.getElementById('countryList');
+    const selectedFlag = document.getElementById('selectedFlag');
+    const selectedCurrency = document.getElementById('selectedCurrency');
+
+    countryTriggerBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      countryDropdownMenu.classList.toggle('open');
+      if (countryDropdownMenu.classList.contains('open')) {
+        countrySearchInput.focus();
+      }
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!countryDropdownMenu.contains(e.target) && !countryTriggerBtn.contains(e.target)) {
+        countryDropdownMenu.classList.remove('open');
+      }
+    });
+
+    function renderCountryOptions(filter = "") {
+      countryList.innerHTML = "";
+      const filtered = countriesData.filter(c => 
+        c.name.toLowerCase().includes(filter.toLowerCase()) || 
+        c.symbol.toLowerCase().includes(filter.toLowerCase()) ||
+        c.code.toLowerCase().includes(filter.toLowerCase())
+      );
+
+      filtered.forEach(c => {
+        const item = document.createElement('div');
+        item.className = 'country-option';
+        item.innerHTML = `
+          <span>${c.flag} ${c.name}</span>
+          <span style="color:#666; font-size:9.5px;">${c.symbol}</span>
+        `;
+        item.addEventListener('click', () => {
+          selectedFlag.textContent = c.flag;
+          selectedCurrency.textContent = `${c.code} (${c.symbol})`;
+          currentRate = c.rate;
+          currentSymbol = c.symbol;
+          countryDropdownMenu.classList.remove('open');
+          renderCart();
+        });
+        countryList.appendChild(item);
+      });
+    }
+
+    countrySearchInput.addEventListener('input', (e) => {
+      renderCountryOptions(e.target.value);
+    });
+
+    renderCountryOptions();
+
+    /* User Auth System */
+    let currentUser = null;
+    const accountDropdown = document.getElementById('accountDropdown');
+
+    function updateAuthUI() {
+      if (currentUser) {
+        accountDropdown.innerHTML = `
+          <div class="user-greeting">Hi, ${currentUser.name}</div>
+          <a href="#profile">My Profile</a>
+          <a href="#orders">My Orders</a>
+          <div class="divider"></div>
+          <button onclick="logout()">Sign Out</button>
+        `;
+      } else {
+        accountDropdown.innerHTML = `
+          <button onclick="login()">Sign In</button>
+          <a href="#signup">Sign Up</a>
+        `;
+      }
+    }
+
+    function login() {
+      currentUser = { name: "VIP Customer" };
+      updateAuthUI();
+    }
+
+    function logout() {
+      currentUser = null;
+      updateAuthUI();
+    }
+
+    /* Shopping Cart System */
+    let cart = [];
+
+    const cartBtn = document.getElementById('cartBtn');
+    const closeCartBtn = document.getElementById('closeCartBtn');
+    const cartDrawer = document.getElementById('cartDrawer');
+    const cartOverlay = document.getElementById('cartOverlay');
+    const cartItems = document.getElementById('cartItems');
+    const cartCount = document.getElementById('cartCount');
+    const cartTotal = document.getElementById('cartTotal');
+
+    function toggleCart() {
+      cartDrawer.classList.toggle('open');
+      cartOverlay.classList.toggle('active');
+    }
+
+    cartBtn.addEventListener('click', toggleCart);
+    closeCartBtn.addEventListener('click', toggleCart);
+    cartOverlay.addEventListener('click', toggleCart);
+
+    function addToCart(title, basePriceUsd) {
+      const existingItem = cart.find(item => item.title === title);
+      if (existingItem) {
+        existingItem.qty += 1;
+      } else {
+        cart.push({ title, basePrice: basePriceUsd, qty: 1 });
+      }
+      renderCart();
+      if (!cartDrawer.classList.contains('open')) {
+        toggleCart();
+      }
+    }
+
+    function changeQty(index, delta) {
+      cart[index].qty += delta;
+      if (cart[index].qty <= 0) {
+        cart.splice(index, 1);
+      }
+      renderCart();
+    }
+
+    function renderCart() {
+      cartItems.innerHTML = '';
+      let totalUsd = 0;
+      let totalQty = 0;
+
+      if (cart.length === 0) {
+        cartItems.innerHTML = '<p style="font-size:11px; text-align:center; color:#888; margin-top:20px;">Your cart is empty.</p>';
+      } else {
+        cart.forEach((item, index) => {
+          totalUsd += item.basePrice * item.qty;
+          totalQty += item.qty;
+          const convertedPrice = (item.basePrice * currentRate).toFixed(2);
+
+          const itemEl = document.createElement('div');
+          itemEl.className = 'cart-item';
+          itemEl.innerHTML = `
+            <div class="cart-item-info">
+              <span class="cart-item-title">${item.title}</span>
+              <span class="cart-item-price">${currentSymbol} ${convertedPrice}</span>
+            </div>
+            <div class="cart-item-controls">
+              <button class="qty-btn" onclick="changeQty(${index}, -1)">-</button>
+              <span style="font-size:11px; font-weight:bold;">${item.qty}</span>
+              <button class="qty-btn" onclick="changeQty(${index}, 1)">+</button>
+            </div>
+          `;
+          cartItems.appendChild(itemEl);
+        });
+      }
+
+      cartCount.textContent = totalQty;
+      cartTotal.textContent = `${currentSymbol} ${(totalUsd * currentRate).toFixed(2)}`;
+    }
+
+    // Init UI
+    updateAuthUI();
+    renderCart();
+  </script>
 
 </body>
 </html>
