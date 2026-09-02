@@ -144,26 +144,27 @@
       text-decoration: none;
       font-weight: 600;
       font-size: 14px;
-      transition: background 0.2s ease;
+      transition: background 0.2s ease, transform 0.2s ease;
     }
 
     .btn-black:hover {
       background: #333333;
+      transform: scale(1.04);
     }
 
-    /* Footer Section */
+    /* Compact & Interactive Footer */
     .nike-footer {
       background: #111111;
       color: #ffffff;
-      padding: 40px;
-      margin-top: 60px;
+      padding: 24px 40px 16px;
+      margin-top: 40px;
     }
 
     .footer-vertical-container {
       display: flex;
       justify-content: flex-start;
-      gap: 100px;
-      padding-bottom: 30px;
+      gap: 70px;
+      padding-bottom: 16px;
       border-bottom: 1px solid #222222;
       max-width: 1200px;
       margin: 0 auto;
@@ -172,27 +173,36 @@
     .footer-col {
       display: flex;
       flex-direction: column;
-      gap: 10px;
+      gap: 6px;
     }
 
     .col-title {
-      font-size: 13px;
+      font-size: 11px;
       font-weight: 700;
       color: #ffffff;
       text-transform: uppercase;
-      margin-bottom: 6px;
+      margin-bottom: 4px;
       letter-spacing: 0.5px;
+      display: inline-block;
+      transition: transform 0.25s cubic-bezier(0.25, 0.8, 0.25, 1);
+    }
+
+    .col-title:hover {
+      transform: scale(1.08);
     }
 
     .footer-col a {
-      color: #aaaaaa;
+      color: #888888;
       text-decoration: none;
-      font-size: 13px;
-      transition: color 0.2s ease;
+      font-size: 11px;
+      display: inline-block;
+      transition: color 0.2s ease, transform 0.25s cubic-bezier(0.25, 0.8, 0.25, 1);
+      transform-origin: left center;
     }
 
     .footer-col a:hover {
       color: #ffffff;
+      transform: scale(1.08) translateX(2px);
     }
 
     .footer-legal-line {
@@ -200,26 +210,111 @@
       flex-wrap: wrap;
       justify-content: space-between;
       align-items: center;
-      padding-top: 20px;
-      color: #aaaaaa;
-      font-size: 12px;
+      padding-top: 12px;
+      color: #777777;
+      font-size: 10px;
       max-width: 1200px;
       margin: 0 auto;
-      gap: 15px;
+      gap: 12px;
     }
 
     .legal-links {
       display: flex;
-      gap: 20px;
+      gap: 16px;
     }
 
     .legal-links a {
-      color: #aaaaaa;
+      color: #777777;
       text-decoration: none;
+      display: inline-block;
+      cursor: pointer;
+      transition: color 0.2s ease, transform 0.2s ease;
     }
 
     .legal-links a:hover {
       color: #ffffff;
+      transform: scale(1.05);
+    }
+
+    /* Modal Overlay & Pop-up Box */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.75);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+      z-index: 9999;
+    }
+
+    .modal-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .modal-box {
+      background: #ffffff;
+      color: #111111;
+      width: 90%;
+      max-width: 600px;
+      max-height: 80vh;
+      border-radius: 12px;
+      padding: 30px;
+      overflow-y: auto;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+      position: relative;
+      transform: translateY(20px);
+      transition: transform 0.3s ease;
+    }
+
+    .modal-overlay.active .modal-box {
+      transform: translateY(0);
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: transparent;
+      border: none;
+      font-size: 24px;
+      font-weight: bold;
+      cursor: pointer;
+      color: #666666;
+      transition: color 0.2s ease;
+    }
+
+    .modal-close:hover {
+      color: #111111;
+    }
+
+    .modal-title {
+      font-size: 20px;
+      font-weight: 800;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+      letter-spacing: -0.5px;
+      padding-right: 30px;
+    }
+
+    .modal-body p {
+      font-size: 13px;
+      color: #444444;
+      line-height: 1.6;
+      margin-bottom: 12px;
+    }
+
+    .modal-body h4 {
+      font-size: 14px;
+      font-weight: 700;
+      margin: 16px 0 6px;
+      color: #111111;
     }
 
     @media (max-width: 768px) {
@@ -230,7 +325,7 @@
 
       .footer-vertical-container {
         flex-direction: column;
-        gap: 30px;
+        gap: 20px;
       }
 
       .footer-legal-line {
@@ -271,7 +366,7 @@
     </div>
   </main>
 
-  <!-- Updated Footer Section -->
+  <!-- Compact & Interactive Footer -->
   <footer class="nike-footer">
     <div class="footer-vertical-container">
       
@@ -302,11 +397,66 @@
     <div class="footer-legal-line">
       <span>Egypt &copy; 2026 J Collection, Inc. All rights reserved.</span>
       <div class="legal-links">
-        <a href="#">Terms of Use</a>
-        <a href="#">Privacy & Cookie Policy</a>
+        <a onclick="openModal('terms')">Terms of Use</a>
+        <a onclick="openModal('privacy')">Privacy & Cookie Policy</a>
       </div>
     </div>
   </footer>
+
+  <!-- Modal Component for Policy Documents -->
+  <div class="modal-overlay" id="policyModal">
+    <div class="modal-box">
+      <button class="modal-close" onclick="closeModal()">&times;</button>
+      <h3 class="modal-title" id="modalTitle"></h3>
+      <div class="modal-body" id="modalContent"></div>
+    </div>
+  </div>
+
+  <script>
+    const policies = {
+      terms: {
+        title: "Terms of Use",
+        content: `
+          <p>Welcome to J COLLECTION. By accessing or using our website and services, you agree to comply with and be bound by the following Terms of Use.</p>
+          <h4>1. Product Quality & Specifications</h4>
+          <p>All J COLLECTION products are crafted as Extrait de Parfum with a 25% fragrance oil concentration to guarantee exceptional performance and durability.</p>
+          <h4>2. Orders & Customer Service</h4>
+          <p>Orders placed through our website or direct communication channels (WhatsApp) are processed promptly for domestic distribution across Egypt within 1-2 business days.</p>
+          <h4>3. Intellectual Property</h4>
+          <p>All logos, imagery, typography, and original visual elements presented on this platform remain the exclusive property of J COLLECTION, Inc.</p>
+        `
+      },
+      privacy: {
+        title: "Privacy & Cookie Policy",
+        content: `
+          <p>At J COLLECTION, we are committed to safeguarding the privacy and personal details of our client base.</p>
+          <h4>1. Information Collection</h4>
+          <p>We collect essential order details (e.g., recipient name, shipping address, contact phone number) solely to facilitate delivery and provide responsive customer service.</p>
+          <h4>2. Data Security & Storage</h4>
+          <p>Your details are stored securely and will never be shared, leased, or sold to external third parties.</p>
+          <h4>3. Cookies & Analytical Tools</h4>
+          <p>We utilize lightweight essential cookies to optimize user experience, speed up page rendering, and improve browsing performance.</p>
+        `
+      }
+    };
+
+    function openModal(type) {
+      document.getElementById("modalTitle").innerHTML = policies[type].title;
+      document.getElementById("modalContent").innerHTML = policies[type].content;
+      document.getElementById("policyModal").classList.add("active");
+    }
+
+    function closeModal() {
+      document.getElementById("policyModal").classList.remove("active");
+    }
+
+    // Close Modal when clicking background overlay
+    document.getElementById("policyModal").addEventListener("click", function(e) {
+      if (e.target === this) {
+        closeModal();
+      }
+    });
+  </script>
 
 </body>
 </html>
