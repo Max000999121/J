@@ -38,18 +38,12 @@
       position: relative;
     }
 
-    /* Ultra-Sharp 4K Logo Styling */
-    .j-logo-circle {
-      width: 70px !important;
-      height: 70px !important;
-      border-radius: 50%;
-      object-fit: cover;
+    /* Vector SVG Crisp Logo */
+    .j-logo-svg {
+      width: 65px;
+      height: 65px;
       display: block;
       transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-      /* High crispness rendering */
-      image-rendering: -webkit-optimize-contrast;
-      image-rendering: crisp-edges;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
     }
 
     /* Text revealed on Hover */
@@ -68,7 +62,7 @@
     }
 
     /* Hover States */
-    .logo-box:hover .j-logo-circle {
+    .logo-box:hover .j-logo-svg {
       transform: scale(1.12);
     }
 
@@ -113,7 +107,6 @@
       max-width: 100%;
       max-height: 500px;
       object-fit: contain;
-      image-rendering: -webkit-optimize-contrast;
     }
 
     .hero-info {
@@ -249,11 +242,13 @@
 </head>
 <body>
 
-  <!-- Top Header with High Quality Reactive Logo -->
+  <!-- Top Header with Pure Crisp SVG Vector Logo -->
   <header class="nike-header">
     <a href="#" class="logo-box">
-      <!-- Ensure your uploaded image filename matches src -->
-      <img src="logo.jpg" alt="J Logo" class="j-logo-circle">
+      <svg class="j-logo-svg" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="100" cy="100" r="90" fill="#f4efea" stroke="#111111" stroke-width="12"/>
+        <text x="100" y="138" font-family="'Times New Roman', Georgia, serif" font-size="115" font-weight="bold" fill="#111111" text-anchor="middle">J</text>
+      </svg>
       <span class="logo-text">J COLLECTION</span>
     </a>
     <nav class="top-nav">
@@ -261,7 +256,7 @@
     </nav>
   </header>
 
-  <!-- Main Showcase -->
+  <!-- Main Showcase Section -->
   <main class="main-web">
     <div class="hero-image-wrapper">
       <img src="logo.jpg" alt="J Perfume Showcase" class="hero-perfume-img">
@@ -279,31 +274,25 @@
   <!-- Footer Section -->
   <footer class="nike-footer">
     <div class="footer-vertical-container">
-      
-      <!-- Contact Us -->
       <div class="footer-col">
         <span class="col-title">Contact Us</span>
         <a href="https://instagram.com" target="_blank">Instagram</a>
         <a href="https://wa.me/201000000000" target="_blank">WhatsApp</a>
       </div>
 
-      <!-- About Us -->
       <div class="footer-col" id="about">
         <span class="col-title">About Us</span>
         <a href="#">Our Story</a>
         <a href="#">Fragrance Quality</a>
       </div>
 
-      <!-- J Collection -->
       <div class="footer-col">
         <span class="col-title">J Collection</span>
         <a href="#">Shop All</a>
         <a href="#">New Releases</a>
       </div>
-
     </div>
 
-    <!-- Rights & Policies -->
     <div class="footer-legal-line">
       <span>Egypt &copy; 2026 J Collection, Inc. All rights reserved.</span>
       <div class="legal-links">
