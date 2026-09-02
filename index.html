@@ -4,7 +4,204 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>J COLLECTION</title>
-  <link rel="stylesheet" href="style.css">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+      background-color: #ffffff;
+      color: #111111;
+      line-height: 1.5;
+    }
+
+    /* Top Navigation Header */
+    .nike-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 40px;
+      background: #ffffff;
+      border-bottom: 1px solid #e5e5e5;
+    }
+
+    /* Fix Logo Size to Small Circle */
+    .j-logo-circle {
+      width: 45px !important;
+      height: 45px !important;
+      border-radius: 50%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .top-nav a {
+      color: #111111;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .top-nav a:hover {
+      color: #757575;
+    }
+
+    /* Main Section */
+    .main-web {
+      padding: 40px 40px 60px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .hero-image-wrapper {
+      width: 100%;
+      max-height: 450px;
+      background: #f5f5f5;
+      border-radius: 8px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 24px;
+    }
+
+    .hero-perfume-img {
+      max-width: 100%;
+      max-height: 450px;
+      object-fit: contain;
+    }
+
+    .hero-info {
+      text-align: left;
+    }
+
+    .sub-heading {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      color: #111111;
+    }
+
+    .hero-info h1 {
+      font-size: 32px;
+      font-weight: 800;
+      text-transform: uppercase;
+      margin: 4px 0 8px;
+      letter-spacing: -0.5px;
+      color: #111111;
+    }
+
+    .hero-info p {
+      font-size: 15px;
+      color: #666666;
+      margin-bottom: 20px;
+    }
+
+    .btn-black {
+      display: inline-block;
+      background: #111111;
+      color: #ffffff;
+      padding: 12px 28px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 14px;
+      transition: background 0.2s ease;
+    }
+
+    .btn-black:hover {
+      background: #333333;
+    }
+
+    /* Footer Bar */
+    .nike-footer {
+      background: #111111;
+      color: #ffffff;
+      padding: 30px 40px;
+      margin-top: 60px;
+    }
+
+    .footer-horizontal-container {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 35px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid #222222;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .footer-group {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .group-title {
+      font-size: 13px;
+      font-weight: 700;
+      color: #ffffff;
+      text-transform: uppercase;
+    }
+
+    .footer-group a {
+      color: #aaaaaa;
+      text-decoration: none;
+      font-size: 13px;
+    }
+
+    .footer-group a:hover {
+      color: #ffffff;
+    }
+
+    .footer-legal-line {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 16px;
+      color: #aaaaaa;
+      font-size: 12px;
+      max-width: 1200px;
+      margin: 0 auto;
+      gap: 15px;
+    }
+
+    .legal-links {
+      display: flex;
+      gap: 20px;
+    }
+
+    .legal-links a {
+      color: #aaaaaa;
+      text-decoration: none;
+    }
+
+    .legal-links a:hover {
+      color: #ffffff;
+    }
+
+    @media (max-width: 768px) {
+      .nike-header, .main-web, .nike-footer {
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+
+      .footer-horizontal-container {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+      }
+
+      .footer-legal-line {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
 </head>
 <body>
 
@@ -18,24 +215,22 @@
     </nav>
   </header>
 
-  <!-- Main Showcase -->
+  <!-- Main Content -->
   <main class="main-web">
-    <div class="main-web-container">
-      <div class="hero-image-wrapper">
-        <img src="IMG_7687.webp" alt="J Perfume Showcase" class="hero-perfume-img">
-      </div>
-      <div class="hero-info">
-        <span class="sub-heading">J COLLECTION</span>
-        <h1>EXTRAIT DE PARFUM</h1>
-        <p>Premium 25% fragrance oil blend crafted for exceptional longevity and projection.</p>
-        <div class="action-buttons">
-          <a href="https://wa.me/201000000000?text=Hello,%20I%20want%20to%20order%20J%20Perfume" target="_blank" class="btn-black">Order via WhatsApp</a>
-        </div>
+    <div class="hero-image-wrapper">
+      <img src="IMG_7687.webp" alt="J Perfume Showcase" class="hero-perfume-img">
+    </div>
+    <div class="hero-info">
+      <span class="sub-heading">J COLLECTION</span>
+      <h1>EXTRAIT DE PARFUM</h1>
+      <p>Premium 25% fragrance oil blend crafted for exceptional longevity and projection.</p>
+      <div class="action-buttons">
+        <a href="https://wa.me/201000000000?text=Hello,%20I%20want%20to%20order%20J%20Perfume" target="_blank" class="btn-black">Order via WhatsApp</a>
       </div>
     </div>
   </main>
 
-  <!-- Bottom Horizontal Footer -->
+  <!-- Horizontal Footer -->
   <footer class="nike-footer">
     <div class="footer-horizontal-container">
       <div class="footer-group">
