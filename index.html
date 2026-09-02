@@ -18,7 +18,7 @@
       line-height: 1.5;
     }
 
-    /* Top Navigation Header */
+    /* Top Header */
     .nike-header {
       display: flex;
       justify-content: space-between;
@@ -28,7 +28,6 @@
       border-bottom: 1px solid #e5e5e5;
     }
 
-    /* Fix Logo Size to Small Circle */
     .j-logo-circle {
       width: 45px !important;
       height: 45px !important;
@@ -115,45 +114,47 @@
       background: #333333;
     }
 
-    /* Footer Bar */
+    /* Footer Section */
     .nike-footer {
       background: #111111;
       color: #ffffff;
-      padding: 30px 40px;
+      padding: 40px;
       margin-top: 60px;
     }
 
-    .footer-horizontal-container {
+    .footer-vertical-container {
       display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 35px;
-      padding-bottom: 20px;
+      justify-content: flex-start;
+      gap: 100px;
+      padding-bottom: 30px;
       border-bottom: 1px solid #222222;
       max-width: 1200px;
       margin: 0 auto;
     }
 
-    .footer-group {
+    .footer-col {
       display: flex;
-      align-items: center;
-      gap: 12px;
+      flex-direction: column;
+      gap: 10px;
     }
 
-    .group-title {
+    .col-title {
       font-size: 13px;
       font-weight: 700;
       color: #ffffff;
       text-transform: uppercase;
+      margin-bottom: 6px;
+      letter-spacing: 0.5px;
     }
 
-    .footer-group a {
+    .footer-col a {
       color: #aaaaaa;
       text-decoration: none;
       font-size: 13px;
+      transition: color 0.2s ease;
     }
 
-    .footer-group a:hover {
+    .footer-col a:hover {
       color: #ffffff;
     }
 
@@ -162,7 +163,7 @@
       flex-wrap: wrap;
       justify-content: space-between;
       align-items: center;
-      padding-top: 16px;
+      padding-top: 20px;
       color: #aaaaaa;
       font-size: 12px;
       max-width: 1200px;
@@ -190,10 +191,9 @@
         padding-right: 20px;
       }
 
-      .footer-horizontal-container {
+      .footer-vertical-container {
         flex-direction: column;
-        align-items: flex-start;
-        gap: 15px;
+        gap: 30px;
       }
 
       .footer-legal-line {
@@ -230,28 +230,34 @@
     </div>
   </main>
 
-  <!-- Horizontal Footer -->
+  <!-- Footer with Vertical Lists -->
   <footer class="nike-footer">
-    <div class="footer-horizontal-container">
-      <div class="footer-group">
-        <span class="group-title">Media:</span>
+    <div class="footer-vertical-container">
+      
+      <!-- Contact Us -->
+      <div class="footer-col">
+        <span class="col-title">Contact Us</span>
         <a href="https://instagram.com" target="_blank">Instagram</a>
         <a href="https://wa.me/201000000000" target="_blank">WhatsApp</a>
       </div>
 
-      <div class="footer-group" id="about">
-        <span class="group-title">About Us:</span>
+      <!-- About Us -->
+      <div class="footer-col" id="about">
+        <span class="col-title">About Us</span>
         <a href="#">Our Story</a>
         <a href="#">Fragrance Quality</a>
       </div>
 
-      <div class="footer-group">
-        <span class="group-title">J Collection:</span>
+      <!-- J Collection -->
+      <div class="footer-col">
+        <span class="col-title">J Collection</span>
         <a href="#">Shop All</a>
         <a href="#">New Releases</a>
       </div>
+
     </div>
 
+    <!-- Rights & Policies -->
     <div class="footer-legal-line">
       <span>Egypt &copy; 2026 J Collection, Inc. All rights reserved.</span>
       <div class="legal-links">
