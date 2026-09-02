@@ -28,12 +28,51 @@
       border-bottom: 1px solid #e5e5e5;
     }
 
+    /* Interactive Logo Box Container */
+    .logo-box {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-decoration: none;
+      cursor: pointer;
+      position: relative;
+    }
+
+    /* Larger Interactive Logo */
     .j-logo-circle {
-      width: 45px !important;
-      height: 45px !important;
+      width: 65px !important;
+      height: 65px !important;
       border-radius: 50%;
       object-fit: cover;
       display: block;
+      transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    }
+
+    /* Text revealed on Hover */
+    .logo-text {
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      color: #111111;
+      text-transform: uppercase;
+      opacity: 0;
+      max-height: 0;
+      overflow: hidden;
+      transform: translateY(-4px);
+      transition: opacity 0.3s ease, transform 0.3s ease, max-height 0.3s ease, margin-top 0.3s ease;
+      white-space: nowrap;
+    }
+
+    /* Hover States */
+    .logo-box:hover .j-logo-circle {
+      transform: scale(1.12);
+    }
+
+    .logo-box:hover .logo-text {
+      opacity: 1;
+      max-height: 20px;
+      transform: translateY(0);
+      margin-top: 6px;
     }
 
     .top-nav a {
@@ -47,7 +86,7 @@
       color: #757575;
     }
 
-    /* Main Section */
+    /* Main Showcase Section */
     .main-web {
       padding: 40px 40px 60px;
       max-width: 1200px;
@@ -205,17 +244,18 @@
 </head>
 <body>
 
-  <!-- Header -->
+  <!-- Top Header with Reactive Logo -->
   <header class="nike-header">
-    <div class="logo-box">
+    <a href="#" class="logo-box">
       <img src="IMG_7687.webp" alt="J Logo" class="j-logo-circle">
-    </div>
+      <span class="logo-text">J COLLECTION</span>
+    </a>
     <nav class="top-nav">
       <a href="#about">About Us</a>
     </nav>
   </header>
 
-  <!-- Main Content -->
+  <!-- Main Showcase -->
   <main class="main-web">
     <div class="hero-image-wrapper">
       <img src="IMG_7687.webp" alt="J Perfume Showcase" class="hero-perfume-img">
@@ -230,7 +270,7 @@
     </div>
   </main>
 
-  <!-- Footer with Vertical Lists -->
+  <!-- Footer Section -->
   <footer class="nike-footer">
     <div class="footer-vertical-container">
       
