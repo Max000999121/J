@@ -1,278 +1,201 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>J COLLECTION</title>
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
-      background-color: #ffffff;
-      color: #111111;
-      line-height: 1.5;
-    }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+  background-color: #ffffff;
+  color: #111111;
+  line-height: 1.5;
+}
 
-    /* Top Header */
-    .nike-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 16px 40px;
-      background: #ffffff;
-      border-bottom: 1px solid #e5e5e5;
-    }
+/* Header */
+.nike-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 40px;
+  background: #ffffff;
+  border-bottom: 1px solid #e5e5e5;
+}
 
-    .j-logo-circle {
-      width: 45px;
-      height: 45px;
-      border-radius: 50%;
-      object-fit: cover;
-      display: block;
-    }
+.j-logo-circle {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+}
 
-    .top-nav a {
-      color: #111111;
-      text-decoration: none;
-      font-size: 14px;
-      font-weight: 600;
-    }
+.top-nav a {
+  color: #111111;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+}
 
-    .top-nav a:hover {
-      color: #757575;
-    }
+.top-nav a:hover {
+  color: #757575;
+}
 
-    /* Main Showcase Area */
-    .main-web {
-      padding: 40px 40px 60px;
-      max-width: 1300px;
-      margin: 0 auto;
-    }
+/* Main Area */
+.main-web {
+  padding: 40px 40px 60px;
+  max-width: 1300px;
+  margin: 0 auto;
+}
 
-    .main-web-container {
-      display: flex;
-      flex-direction: column;
-      gap: 24px;
-    }
+.main-web-container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
 
-    .hero-image-wrapper {
-      width: 100%;
-      max-height: 500px;
-      background: #f5f5f5;
-      border-radius: 4px;
-      overflow: hidden;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
+.hero-image-wrapper {
+  width: 100%;
+  max-height: 500px;
+  background: #f5f5f5;
+  border-radius: 4px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
-    .hero-perfume-img {
-      width: 100%;
-      height: 100%;
-      max-height: 500px;
-      object-fit: contain;
-    }
+.hero-perfume-img {
+  width: 100%;
+  height: 100%;
+  max-height: 500px;
+  object-fit: contain;
+}
 
-    .hero-info {
-      text-align: left;
-      margin-top: 10px;
-    }
+.hero-info {
+  text-align: left;
+  margin-top: 10px;
+}
 
-    .sub-heading {
-      font-size: 13px;
-      font-weight: 700;
-      letter-spacing: 0.5px;
-    }
+.sub-heading {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
 
-    .hero-info h1 {
-      font-size: 36px;
-      font-weight: 800;
-      text-transform: uppercase;
-      margin: 4px 0 8px;
-      letter-spacing: -0.5px;
-    }
+.hero-info h1 {
+  font-size: 36px;
+  font-weight: 800;
+  text-transform: uppercase;
+  margin: 4px 0 8px;
+  letter-spacing: -0.5px;
+}
 
-    .hero-info p {
-      font-size: 15px;
-      color: #757575;
-      margin-bottom: 18px;
-    }
+.hero-info p {
+  font-size: 15px;
+  color: #757575;
+  margin-bottom: 18px;
+}
 
-    .btn-black {
-      display: inline-block;
-      background: #111111;
-      color: #ffffff;
-      padding: 10px 24px;
-      border-radius: 30px;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 14px;
-      transition: background 0.2s ease;
-    }
+.btn-black {
+  display: inline-block;
+  background: #111111;
+  color: #ffffff;
+  padding: 10px 24px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14px;
+  transition: background 0.2s ease;
+}
 
-    .btn-black:hover {
-      background: #757575;
-    }
+.btn-black:hover {
+  background: #757575;
+}
 
-    /* Footer - Full Width Dark Rectangle at the Very Bottom */
-    .nike-footer {
-      background: #111111;
-      color: #ffffff;
-      padding: 30px 40px;
-      margin-top: 60px;
-    }
+/* Horizontal Bottom Footer */
+.nike-footer {
+  background: #111111;
+  color: #ffffff;
+  padding: 30px 40px;
+  margin-top: 60px;
+}
 
-    .footer-horizontal-container {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 40px;
-      padding-bottom: 20px;
-      border-bottom: 1px solid #222222;
-      max-width: 1300px;
-      margin: 0 auto;
-    }
+.footer-horizontal-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 40px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #222222;
+  max-width: 1300px;
+  margin: 0 auto;
+}
 
-    .footer-group {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
+.footer-group {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
 
-    .group-title {
-      font-size: 13px;
-      font-weight: 700;
-      color: #ffffff;
-      text-transform: uppercase;
-    }
+.group-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: #ffffff;
+  text-transform: uppercase;
+}
 
-    .footer-group a {
-      color: #7e7e7e;
-      text-decoration: none;
-      font-size: 13px;
-      transition: color 0.2s ease;
-    }
+.footer-group a {
+  color: #7e7e7e;
+  text-decoration: none;
+  font-size: 13px;
+  transition: color 0.2s ease;
+}
 
-    .footer-group a:hover {
-      color: #ffffff;
-    }
+.footer-group a:hover {
+  color: #ffffff;
+}
 
-    .footer-legal-line {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      align-items: center;
-      padding-top: 16px;
-      color: #7e7e7e;
-      font-size: 12px;
-      max-width: 1300px;
-      margin: 0 auto;
-      gap: 15px;
-    }
+.footer-legal-line {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 16px;
+  color: #7e7e7e;
+  font-size: 12px;
+  max-width: 1300px;
+  margin: 0 auto;
+  gap: 15px;
+}
 
-    .legal-links {
-      display: flex;
-      gap: 20px;
-    }
+.legal-links {
+  display: flex;
+  gap: 20px;
+}
 
-    .legal-links a {
-      color: #7e7e7e;
-      text-decoration: none;
-    }
+.legal-links a {
+  color: #7e7e7e;
+  text-decoration: none;
+}
 
-    .legal-links a:hover {
-      color: #ffffff;
-    }
+.legal-links a:hover {
+  color: #ffffff;
+}
 
-    @media (max-width: 768px) {
-      .nike-header, .main-web, .nike-footer {
-        padding-left: 20px;
-        padding-right: 20px;
-      }
+@media (max-width: 768px) {
+  .nike-header, .main-web, .nike-footer {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
 
-      .footer-horizontal-container {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 15px;
-      }
+  .footer-horizontal-container {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
 
-      .footer-legal-line {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-    }
-  </style>
-</head>
-<body>
-
-  <!-- Top Header with Small Circular Logo -->
-  <header class="nike-header">
-    <div class="logo-box">
-      <img src="IMG_7687.webp" alt="J Logo" class="j-logo-circle">
-    </div>
-    <nav class="top-nav">
-      <a href="#about">About Us</a>
-    </nav>
-  </header>
-
-  <!-- Main Web Section -->
-  <main class="main-web">
-    <div class="main-web-container">
-      <div class="hero-image-wrapper">
-        <img src="IMG_7687.webp" alt="J Perfume Showcase" class="hero-perfume-img">
-      </div>
-      <div class="hero-info">
-        <span class="sub-heading">J COLLECTION</span>
-        <h1>EXTRAIT DE PARFUM</h1>
-        <p>Premium 25% fragrance oil blend crafted for exceptional longevity and projection.</p>
-        <div class="action-buttons">
-          <a href="https://wa.me/201000000000?text=Hello,%20I%20want%20to%20order%20J%20Perfume" target="_blank" class="btn-black">Order via WhatsApp</a>
-        </div>
-      </div>
-    </div>
-  </main>
-
-  <!-- Bottom Horizontal Footer -->
-  <footer class="nike-footer">
-    <div class="footer-horizontal-container">
-      
-      <!-- Media Section -->
-      <div class="footer-group">
-        <span class="group-title">Media:</span>
-        <a href="https://instagram.com" target="_blank">Instagram</a>
-        <a href="https://wa.me/201000000000" target="_blank">WhatsApp</a>
-      </div>
-
-      <!-- About Us Section -->
-      <div class="footer-group" id="about">
-        <span class="group-title">About Us:</span>
-        <a href="#">Our Story</a>
-        <a href="#">Fragrance Quality</a>
-      </div>
-
-      <!-- J Collection Section -->
-      <div class="footer-group">
-        <span class="group-title">J Collection:</span>
-        <a href="#">Shop All</a>
-        <a href="#">New Releases</a>
-      </div>
-
-    </div>
-
-    <!-- Rights & Policies Bar -->
-    <div class="footer-legal-line">
-      <span>Egypt &copy; 2026 J Collection, Inc. All rights reserved.</span>
-      <div class="legal-links">
-        <a href="#">Terms of Use</a>
-        <a href="#">Privacy & Cookie Policy</a>
-      </div>
-    </div>
-  </footer>
-
-</body>
-</html>
+  .footer-legal-line {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
