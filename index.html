@@ -5,23 +5,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>J COLLECTION</title>
   <link rel="stylesheet" href="style.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Helvetica+Neue:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
-  <!-- Top Bar / Navigation Header -->
+  <!-- Top Header with Small Circular Logo -->
   <header class="nike-header">
     <div class="logo-box">
-      <img src="logo.webp" alt="J Logo" class="j-logo">
+      <img src="logo.webp" alt="J Logo" class="j-logo-circle">
     </div>
     <nav class="top-nav">
       <a href="#about">About Us</a>
     </nav>
   </header>
 
-  <!-- Main Web Section (Hero & Showcase) -->
+  <!-- Main Web Section -->
   <main class="main-web">
     <div class="main-web-container">
       <div class="hero-image-wrapper">
@@ -38,35 +35,39 @@
     </div>
   </main>
 
-  <!-- Clean Footer Section -->
+  <!-- Bottom Horizontal Footer -->
   <footer class="nike-footer">
-    <div class="footer-columns">
+    <div class="footer-horizontal-container">
       
-      <!-- Column 1: Media -->
-      <div class="footer-col">
-        <h4>Media</h4>
-        <ul>
-          <li><a href="https://instagram.com" target="_blank">Instagram</a></li>
-          <li><a href="https://wa.me/201000000000" target="_blank">WhatsApp</a></li>
-        </ul>
+      <!-- Media Section -->
+      <div class="footer-group">
+        <span class="group-title">Media:</span>
+        <a href="https://instagram.com" target="_blank">Instagram</a>
+        <a href="https://wa.me/201000000000" target="_blank">WhatsApp</a>
       </div>
 
-      <!-- Column 2: J Collection / About -->
-      <div class="footer-col">
-        <h4>J Collection</h4>
-        <ul>
-          <li><a href="#about">About Us</a></li>
-        </ul>
+      <!-- About Us Section -->
+      <div class="footer-group" id="about">
+        <span class="group-title">About Us:</span>
+        <a href="#">Our Story</a>
+        <a href="#">Fragrance Quality</a>
+      </div>
+
+      <!-- J Collection Section -->
+      <div class="footer-group">
+        <span class="group-title">J Collection:</span>
+        <a href="#">Shop All</a>
+        <a href="#">New Releases</a>
       </div>
 
     </div>
 
-    <!-- Bottom Copyright Line -->
-    <div class="footer-legal">
-      <p>&copy; 2026 J Collection, Inc. All rights reserved.</p>
+    <!-- Rights & Policies Bar -->
+    <div class="footer-legal-line">
+      <span>Egypt &copy; 2026 J Collection, Inc. All rights reserved.</span>
       <div class="legal-links">
         <a href="#">Terms of Use</a>
-        <a href="#">Privacy Policy</a>
+        <a href="#">Privacy & Cookie Policy</a>
       </div>
     </div>
   </footer>
