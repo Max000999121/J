@@ -195,7 +195,9 @@
       color: #888888;
       text-decoration: none;
       font-size: 11px;
-      display: inline-block;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
       transition: color 0.2s ease, transform 0.25s cubic-bezier(0.25, 0.8, 0.25, 1);
       transform-origin: left center;
     }
@@ -203,6 +205,13 @@
     .footer-col a:hover {
       color: #ffffff;
       transform: scale(1.08) translateX(2px);
+    }
+
+    .footer-icon {
+      width: 14px;
+      height: 14px;
+      object-fit: contain;
+      display: inline-block;
     }
 
     .footer-legal-line {
@@ -373,8 +382,14 @@
       <!-- Contact Us -->
       <div class="footer-col">
         <span class="col-title">Contact Us</span>
-        <a href="https://instagram.com" target="_blank">Instagram</a>
-        <a href="https://wa.me/201000000000" target="_blank">WhatsApp</a>
+        <a href="https://instagram.com" target="_blank">
+          <img src="https://cdn.discordapp.com/emojis/1419332280614391959.webp?size=32" alt="Instagram Icon" class="footer-icon">
+          Instagram
+        </a>
+        <a href="https://wa.me/201000000000" target="_blank">
+          <img src="https://cdn.discordapp.com/emojis/1525076303160676478.webp?size=32" alt="WhatsApp Icon" class="footer-icon">
+          WhatsApp
+        </a>
         <a href="https://wa.me/201000000000?text=Customer%20Support" target="_blank">Customer Support</a>
       </div>
 
@@ -450,7 +465,6 @@
       document.getElementById("policyModal").classList.remove("active");
     }
 
-    // Close Modal when clicking background overlay
     document.getElementById("policyModal").addEventListener("click", function(e) {
       if (e.target === this) {
         closeModal();
